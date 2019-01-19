@@ -90,7 +90,7 @@ Rename this file to **class**.java, using the class name you picked out.
 within, like for EnemyWave.java, replace the first line, specifying the package name to your **package** name.
 
 Next, change the line opening the `StarterBot` class, changing `public class StarterBot extends AdvancedRobot {` to
-`public class **class** extends AdvancedRobot {`
+`public class YOUR_CLASS_NAME extends AdvancedRobot {`
 
 There are a few references to **StarterBot** in some comments, you can change them to your bots name if you wish, keeping
 it as is won't impact your bot at all.
