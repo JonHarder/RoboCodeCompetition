@@ -47,7 +47,7 @@ aim the next time you take aim at your enemy.
 ### Fork this codebase
 #### Give the project and your bot a name unique to you.
 For the rest of this documentation, **starterbot** is my package name, and **StarterBot** is my class name, you should come up with your own
-and fill them in whenever you see a reference to *package* or *class*.
+and fill them in whenever you see a reference to **package** or **class**.
 #### Clone your forked copy to your computer
 #### Edit the `build.gradle` file with an updated reference to the `robocode.jar` file
 
@@ -58,16 +58,16 @@ dependencies {
 ```
 
 #### Edit the properties file
-In `/src/main/resources/`, you'll find a foulder called `starterbot`
-* Rename it from `starterbot` to your *package* name.
-* Rename the file within that folder from `StarterBot.properties` to *class*.properties, replacing *class* with the name of the bot you've picked out
+In `/src/main/resources/`, you'll find a folder called `starterbot`
+* Rename it from `starterbot` to your **package** name.
+* Rename the file within that folder from `StarterBot.properties` to **class**.properties, replacing **class** with the name of the bot you've picked out
 * within the file, change the value for `robot.description` to a brief description of your bot
 * change the value for `robot.author.name` to you
-* change the value for `robot.classname` to *class*, using whatever name you've picked out
+* change the value for `robot.classname` to **package**.**class**, using whatever name you've picked out
 * change the value for `uuid` to a random uuid, I suggest grabbing one from [here](https://www.uuidgenerator.net/)
 
 #### Renaming java things
-Navigate to `/src/main/java/`, you should see one folder there called starterbot, rename it to *package*.
+Navigate to `/src/main/java/`, you should see one folder there called starterbot, rename it to **package**.
 
 within this folder, you should see two files, `EnemyWave.java`, and `StarterBot.java`
 
@@ -85,9 +85,9 @@ package YOUR_PACKAGE_NAME;
 ```
 
 ##### StarterBot.java
-Rename this file to *class*.java, using the class name you picked out.
+Rename this file to **class**.java, using the class name you picked out.
 
-within, like for EnemyWave.java, replace the first line, specifying the package name to your *package* name.
+within, like for EnemyWave.java, replace the first line, specifying the package name to your **package** name.
 
 Next, change the line opening the `StarterBot` class, changing `public class StarterBot extends AdvancedRobot {` to
 `public class **class** extends AdvancedRobot {`
