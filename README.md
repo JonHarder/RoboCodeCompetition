@@ -3,7 +3,8 @@ Welcome to the RoboCode competition! RoboCode is a game in which you program a r
 robots using only your wits and bits.
 
 ## Prerequisites
-* java 8: [download](https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-macosx-x64.dmg)
+* java 8: [download](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  Accept the licence aggreement, selecte the **jdk-8u201-macosx-x64.dmg** option
 * RoboCode: [download](https://sourceforge.net/projects/robocode/files/latest/download)
 * InjelliJ: [download](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
 
@@ -36,3 +37,27 @@ it and beat your competition.
 Guess Factor Targeting is a technique used to record the history of shots fired at an enemy, and learn
 which angles used resulted in the most hits. This information is then used to inform where to
 aim the next time you take aim at your enemy.
+
+# Getting Started
+
+## Download RoboCode
+
+## Configuring IntelliJ
+Once you've downloaded intellij, open it up and open this project.
+
+### Setup the SDK
+hit the **Setup SDK** link in the upper right corner of intellij, it should find all of your versions of java,
+select *1.8.0_201*
+
+### Set the language level
+1. Go to **File** -> **Project Structure...**
+2. In the **Project language level** dropdown, select *8 - Lambdas, type annotations etc.*
+3. hit **apply**, then **ok**
+
+### Include the RoboCode libraries into the project
+1. Go to **File** -> **Project Structure...**
+2. On the left nav bar, select **Modules**
+3. near the top of the window, select **Dependancies**
+4. Hit the + at the bottom of the window, and select the first option: *JARs or directories*
+5. in the file explorer, navigate to the folder you installed robocode into, and locate the **libs** folder, finally, select **robocode.jar**
+within the libs folder
