@@ -43,6 +43,58 @@ aim the next time you take aim at your enemy.
 
 ## Download RoboCode
 
+## Make your own bot
+### Fork this codebase
+#### Give the project and your bot a name unique to you.
+For the rest of this documentation, **starterbot** is my package name, and **StarterBot** is my class name, you should come up with your own
+and fill them in whenever you see a reference to *package* or *class*.
+#### Clone your forked copy to your computer
+#### Edit the `build.gradle` file with an updated reference to the `robocode.jar` file
+
+``` gradle
+dependencies {
+    compile files('PATH_TO_YOUR_ROBOCODE_FOLDER/robocode/libs/robocode.jar')
+}
+```
+
+#### Edit the properties file
+In `/src/main/resources/`, you'll find a foulder called `starterbot`
+* Rename it from `starterbot` to your *package* name.
+* Rename the file within that folder from `StarterBot.properties` to *class*.properties, replacing *class* with the name of the bot you've picked out
+* within the file, change the value for `robot.description` to a brief description of your bot
+* change the value for `robot.author.name` to you
+* change the value for `robot.classname` to *class*, using whatever name you've picked out
+* change the value for `uuid` to a random uuid, I suggest grabbing one from [here](https://www.uuidgenerator.net/)
+
+#### Renaming java things
+Navigate to `/src/main/java/`, you should see one folder there called starterbot, rename it to *package*.
+
+within this folder, you should see two files, `EnemyWave.java`, and `StarterBot.java`
+
+##### EnemyWave.java
+All you should need to change in this file is the first line, where it lists the package name, change it from
+
+``` java
+package starterbot;
+```
+
+to
+
+``` java
+package YOUR_PACKAGE_NAME;
+```
+
+##### StarterBot.java
+Rename this file to *class*.java, using the class name you picked out.
+
+within, like for EnemyWave.java, replace the first line, specifying the package name to your *package* name.
+
+Next, change the line opening the `StarterBot` class, changing `public class StarterBot extends AdvancedRobot {` to
+`public class **class** extends AdvancedRobot {`
+
+There are a few references to **StarterBot** in some comments, you can change them to your bots name if you wish, keeping
+it as is won't impact your bot at all.
+
 ## Configuring IntelliJ
 Once you've downloaded intellij, open it up and open this project.
 
@@ -63,3 +115,8 @@ select *1.8.0_201*
 5. in the file explorer, navigate to the folder you installed robocode into, and locate the **libs** folder, finally, select **robocode.jar**
 within the libs folder
 6. hit **apply**, then **ok**
+
+
+
+# TODO
+* configure robocode to external bot, linked to your forked copy of this repo (so you dont have to *clear cache*, *import*, *browse*, etc.)
