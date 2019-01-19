@@ -9,6 +9,7 @@ robots using only your wits and bits.
 
 ## Resources/Links
 * RoboCode Wiki: [link](http://robowiki.net/)
+* RoboCode API: [link](https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html)
 * Java Primer: [link](https://learnxinyminutes.com/docs/java/)
 
 
@@ -20,6 +21,7 @@ employ. The two primary ones are [Wave Surfing](#Wave Surfing), and [Guest Facto
 ## Concepts
 ### Wave Surfing
 [RoboCode Wiki](http://robowiki.net/wiki/Wave_surfing)
+
 Wave surfing is a technique used to avoid bullets by treating each fired shot as a wave eminating from
 the enemy, representing all posible locations the bullet could be as a circle growing from its source,
 the enemy robot.
@@ -28,6 +30,8 @@ Your starter bot has implemented a basic version of wave surfing, it's up to you
 it and beat your competition.
 
 ### Guess Factor Targeting
+[RoboCode Wiki](http://robowiki.net/wiki/Guess_Factor)
+
 Guess Factor Targeting is a technique used to record the history of shots fired at an enemy, and learn
-which angles used resulted in the most successful hits. This information is then used to inform where to
+which angles used resulted in the most hits. This information is then used to inform where to
 aim the next time you take aim at your enemy.
