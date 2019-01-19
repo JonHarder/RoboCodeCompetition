@@ -15,7 +15,7 @@ robots using only your wits and bits.
 
 ## Starting Bot
 Included in this repository in the [src](/src) directory is a starter bot, it implements a few key strategies that most successful bots
-employ. The two primary ones are [Wave Surfing](#Wave Surfing), and [Guest Factor Targeting](#Guess Factor Targeting).
+employ. The two primary ones are [Wave Surfing](#wave-surfing), and [Guest Factor Targeting](#guess-factor-targeting).
 
 
 ## Concepts
