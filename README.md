@@ -1,5 +1,5 @@
 # RoboCodeCompetition
-Welcome to the RoboCode competition! Robocode is a game in which you program a robot in java to fight other
+Welcome to the RoboCode competition! RoboCode is a game in which you program a robot in java to fight other
 robots using only your wits and bits.
 
 ## Prerequisites
@@ -10,6 +10,7 @@ robots using only your wits and bits.
 ## Resources/Links
 * RoboCode Wiki: [link](http://robowiki.net/)
 * RoboCode API: [link](https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html)
+* RoboCode Game Physics: [link](http://robowiki.net/wiki/Robocode/Game_Physics)
 * Java Primer: [link](https://learnxinyminutes.com/docs/java/)
 
 
