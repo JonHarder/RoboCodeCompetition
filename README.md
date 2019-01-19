@@ -6,6 +6,7 @@ robots using only your wits and bits.
 * java 8: [download](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
   Accept the licence aggreement, selecte the **jdk-8u201-macosx-x64.dmg** option
 * RoboCode: [download](https://sourceforge.net/projects/robocode/files/latest/download)
+* Gradle: `brew install gradle`
 * InjelliJ: [download](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
 
 ## Resources/Links
@@ -61,3 +62,4 @@ select *1.8.0_201*
 4. Hit the + at the bottom of the window, and select the first option: *JARs or directories*
 5. in the file explorer, navigate to the folder you installed robocode into, and locate the **libs** folder, finally, select **robocode.jar**
 within the libs folder
+6. hit **apply**, then **ok**

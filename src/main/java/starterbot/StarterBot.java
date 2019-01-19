@@ -34,6 +34,7 @@ public class StarterBot extends AdvancedRobot {
     public static Rectangle2D.Double _fieldRect = new java.awt.geom.Rectangle2D.Double(18, 18, 764, 564);
     public static double WALL_STICK = 160;
 
+
     /**
      * run: StarterBot's default behavior
      */
@@ -68,7 +69,7 @@ public class StarterBot extends AdvancedRobot {
         this._surfAbsBearings.add(0, new Double(absBearing + Math.PI));
 
         double bulletPower = this._oppEnergy - e.getEnergy();
-        if (bulletPower < 3.01 && bulletPower > 0.09 && this.surfDirections.size() > 2) {
+        if (bulletPower < 3.01 && bulletPower > 0.09 && this._surfDirections.size() > 2) {
             EnemyWave ew = new EnemyWave();
             ew.fireTime = getTime() - 1;
             ew.bulletVelocity = this.bulletVelocity(bulletPower);
@@ -128,10 +129,10 @@ public class StarterBot extends AdvancedRobot {
      * calculate the index into our stat array for that factor.
      */
     private static int getFactorIndex(EnemyWave ew, Point2D.Double targetLocation) {
-        double offsetAngle = (this.absoluteBearing(ew.fireLocation, targetLocation) - ew.directAngle);
-        double factor = Utils.normalRelativeAngle(offsetAngle) / this.maxEscapeAngle(ew.bulletVelocity) * ew.direction;
+        double offsetAngle = (absoluteBearing(ew.fireLocation, targetLocation) - ew.directAngle);
+        double factor = Utils.normalRelativeAngle(offsetAngle) / maxEscapeAngle(ew.bulletVelocity) * ew.direction;
 
-        return (int) this.limit(0, (factor * ((BINS - 1) / 2)) + ((BINS - 1) / 2), BINS - 1)
+        return (int)limit(0, (factor * ((BINS - 1) / 2)) + ((BINS - 1) / 2), BINS - 1);
     }
 
 
@@ -139,7 +140,7 @@ public class StarterBot extends AdvancedRobot {
      * Given the EnemyWave that the bullet was on, and the point where we were hit,
      * update our stat array to reflect the danger in that area.
      */
-    private void logHit(EnemeyWave ew, Point2D.Double targetLocation) {
+    private void logHit(EnemyWave ew, Point2D.Double targetLocation) {
         int index = getFactorIndex(ew, targetLocation);
         for (int x = 0; x < BINS; x++) {
             // for the spot bin that we were hit on, add 1;
@@ -205,7 +206,7 @@ public class StarterBot extends AdvancedRobot {
 
             // maxTurning is built in like this, you can't turn more than this in one tick
             maxTurning = Math.PI / 720d * (40d - 3d * Math.abs(predictedVelocity));
-            predictedHeading = Utils.normalRelativeAngle(predictedHeading + limit(_maxTurning, moveAngle, maxTurning));
+            predictedHeading = Utils.normalRelativeAngle(predictedHeading + limit(maxTurning, moveAngle, maxTurning));
 
             // this one is nice ;). if predictedVelocity and moveDir have
             // different signs you want to break down
@@ -263,16 +264,6 @@ public class StarterBot extends AdvancedRobot {
     }
 
 
-    class EnemyWave {
-        Point2D.Double fireLocation;
-        long fireTime;
-        double bulletVelocity, directAngle, distanceTraveled;
-        int direction;
-
-        public EnemyWave() {
-        }
-    }
-
     private double wallSmoothing(Point2D.Double botLocation, double angle, int orientation) {
         while (!this._fieldRect.contains(project(botLocation, angle, WALL_STICK))) {
             angle += orientation * 0.05;
@@ -281,6 +272,11 @@ public class StarterBot extends AdvancedRobot {
         return angle;
     }
 
+    public static Point2D.Double project(Point2D.Double sourceLocation,
+                                         double angle, double length) {
+        return new Point2D.Double(sourceLocation.x + Math.sin(angle) * length,
+                sourceLocation.y + Math.cos(angle) * length);
+    }
 
     private static double absoluteBearing(Point2D.Double source, Point2D.Double target) {
         return Math.atan2(target.x - source.x, target.y - source.y);

@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+dependencies {
+    compile files('/Users/jharder/robocode/libs/robocode.jar')
+}
+
+version = 'v1.0.0'
+jar {
+    manifest {
+	attributes 'Implementation-Title': 'Starter Bot',
+	    'Implementation-Version': version
+    }
+}
