@@ -95,6 +95,10 @@ Next, change the line opening the `StarterBot` class, changing `public class Sta
 There are a few references to **StarterBot** in some comments, you can change them to your bots name if you wish, keeping
 it as is won't impact your bot at all.
 
+##### Naming your project
+open `settings.gradle`, and change the value for `rootProject.name` to something unique, this will ultimately be the
+prefix for the name of the jar that gradle will create.
+
 ## Configuring IntelliJ
 Once you've downloaded intellij, open it up and open this project.
 
@@ -160,7 +164,7 @@ In robocode
 
 
 # TODO
-* configure robocode to external bot, linked to your forked copy of this repo (so you dont have to *clear cache*, *import*, *browse*, etc.)
-* rename project in build.gradle?
+* ~~configure robocode to external bot, linked to your forked copy of this repo (so you dont have to *clear cache*, *import*, *browse*, etc.)~~
+* ~~rename project in build.gradle?~~
 * Send your jar file to ($somewhere)
 * Battle server you can updload bots to (backend to run battles, front end to view results, select specific contenstants)
