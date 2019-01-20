@@ -117,6 +117,50 @@ within the libs folder
 6. hit **apply**, then **ok**
 
 
+## Compiling your bot
+from the command line, at the root of (your forked version of) this project, run
+
+``` shell
+gradle build
+```
+
+the output should have gone into a folder called `build`, with the final runnable jar file in a `libs` folder within the
+build directory.
+
+
+## Running your bot
+You have a few options here, using gradle to build the project will produce both the class files, and the final jar file.
+
+Open robocode by navigating to the robocode folder in the terminal and execute the `robocode.sh` script
+``` shell
+jharder$ ./robocode.sh
+```
+
+Regardles of which option offered below you end up choosing, to run an actual battle is the same.
+
+1. Click **Battle** -> **New**
+2. In the left-most column, there should called your **package** name, click it and then click **Add ->**
+3. Find another bot, then click **Add ->** for that one as well
+4. Then, click **Start Battle**
+5. Enjoy
+
+### Manual Import
+In robocode
+
+1. click **Options** -> **Clean robot cache**
+2. **Robot** -> **Import robot or team**
+3. in the file browser, navigate to (your forked copy of) this project, and select the jar file in `/build/libs/`
+
+### Linking your project class files into robocode
+In robocode
+
+1. click **Options** -> **Preferences**
+2. Select the **Development Options** tab, and click **Add**
+3. In the file browser, navigate to this project, and then navigate to `/build/classes/java/main/` and select the folder there, it should be your **package** name
+
 
 # TODO
 * configure robocode to external bot, linked to your forked copy of this repo (so you dont have to *clear cache*, *import*, *browse*, etc.)
+* rename project in build.gradle?
+* Send your jar file to ($somewhere)
+* Battle server you can updload bots to (backend to run battles, front end to view results, select specific contenstants)
