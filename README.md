@@ -166,5 +166,6 @@ In robocode
 # TODO
 * ~~configure robocode to external bot, linked to your forked copy of this repo (so you dont have to *clear cache*, *import*, *browse*, etc.)~~
 * ~~rename project in build.gradle?~~
+* Implement Guess Factor Targeting
 * Send your jar file to ($somewhere)
 * Battle server you can updload bots to (backend to run battles, front end to view results, select specific contenstants)
