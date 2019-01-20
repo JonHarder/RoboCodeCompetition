@@ -133,7 +133,7 @@ You have a few options here, using gradle to build the project will produce both
 
 Open robocode by navigating to the robocode folder in the terminal and execute the `robocode.sh` script
 ``` shell
-jharder$ ./robocode.sh
+./robocode.sh
 ```
 
 Regardles of which option offered below you end up choosing, to run an actual battle is the same.
