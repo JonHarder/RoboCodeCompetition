@@ -53,6 +53,13 @@ public class StarterBot extends AdvancedRobot {
         } while (true);
     }
 
+
+    public void onPaint(Graphics2D g) {
+	// use the graphics object here to draw things to the screen.
+	// used for debugging and for seeing what your bot is thinking.
+    }
+
+
     /**
      * onScannedRobot: What to do when you see another robot
      */
@@ -296,8 +303,7 @@ public class StarterBot extends AdvancedRobot {
     }
 
     private static void setBackAsFront(AdvancedRobot robot, double goAngle) {
-        double angle =
-                Utils.normalRelativeAngle(goAngle - robot.getHeadingRadians());
+        double angle = Utils.normalRelativeAngle(goAngle - robot.getHeadingRadians());
         if (Math.abs(angle) > (Math.PI / 2)) {
             if (angle < 0) {
                 robot.setTurnRightRadians(Math.PI + angle);
