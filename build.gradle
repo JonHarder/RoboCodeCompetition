@@ -1,8 +1,20 @@
 plugins {
     id 'java'
+    id 'idea'
 }
 dependencies {
     compile files('/Users/jharder/robocode/libs/robocode.jar')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
 }
 
 version = 'v1.0.0'

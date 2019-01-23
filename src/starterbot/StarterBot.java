@@ -3,6 +3,7 @@ package starterbot;
 import robocode.*;
 import robocode.util.Utils;
 
+import java.awt.*;
 import java.awt.geom.*; // for Point2D's
 import java.util.ArrayList; // for collection of waves
 
