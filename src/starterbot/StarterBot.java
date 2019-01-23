@@ -6,6 +6,7 @@ import robocode.util.Utils;
 import java.awt.*;
 import java.awt.geom.*; // for Point2D's
 import java.util.ArrayList; // for collection of waves
+import java.util.List;
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
@@ -23,6 +24,7 @@ public class StarterBot extends AdvancedRobot {
     public ArrayList _surfDirections;
     public ArrayList _surfAbsBearings;
 
+
     public static double _oppEnergy = 100.0;
 
     /**
@@ -34,6 +36,13 @@ public class StarterBot extends AdvancedRobot {
      */
     public static Rectangle2D.Double _fieldRect = new java.awt.geom.Rectangle2D.Double(18, 18, 764, 564);
     public static double WALL_STICK = 160;
+
+
+    // guess factor targeting
+    public List<WaveBullet> waves = new ArrayList<>();
+    public static int[] stats = new int[31]; // 31 is the number of unique GuessFactors we're using
+    public int direction = 1;                // Note: this must be an odd number so we can get
+                                             // GuessFactor 0 at the middle.
 
 
     /**
@@ -99,6 +108,47 @@ public class StarterBot extends AdvancedRobot {
         this.doSurfing();
 
         // gun code goes here
+
+        // find enemy's location
+        double ex = getX() + Math.sin(absBearing) * e.getDistance();
+        double ey = getY() + Math.cos(absBearing) * e.getDistance();
+
+        // lets process bullet waves
+        for(int i=0; i<waves.size(); i++) {
+            WaveBullet currentWave = waves.get(i);
+            if(currentWave.checkHit(ex, ey, getTime())) {
+                waves.remove(currentWave);
+                i--;
+            }
+        }
+
+        double power = Math.min(3, Math.max(0.1, 2/* some function */));
+        // dont try to figure out the direction they're moving
+        // if they're not moving, just use the direction we had before
+        if(e.getVelocity() != 0) {
+            if(Math.sin(e.getHeadingRadians()-absBearing)*e.getVelocity() <0) {
+                direction = -1;
+            } else {
+                direction = 1;
+            }
+        }
+        int[] currentStats = stats;
+        WaveBullet newWave = new WaveBullet(getX(), getY(), absBearing, power, direction, getTime(), currentStats);
+        int bestIndex = 15; // initialize it to be in the middle, guessFactor 0.
+        for(int i=0; i<31; i++) {
+            if(currentStats[bestIndex] < currentStats[i]) {
+                bestIndex = i;
+            }
+        }
+        // this should do the opposite of the math in the WaveBullet
+        double guessFactor = (double)(bestIndex - (stats.length - 1) / 2) / ((stats.length - 1) / 2);
+        double angleOffset = direction * guessFactor * newWave.maxEscapeAngle();
+        double gunAdjust = Utils.normalRelativeAngle(
+                absBearing - getGunHeadingRadians() + angleOffset);
+        setTurnGunRightRadians(gunAdjust);
+        if(getGunHeat() == 0 && gunAdjust < Math.atan2(9, e.getDistance()) && setFireBullet(power) != null) {
+            waves.add(newWave);
+        }
     }
 
 
