@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'idea'
 }
+
 dependencies {
     compile files('/Users/jharder/robocode/libs/robocode.jar')
 }
@@ -20,7 +21,9 @@ sourceSets {
 version = 'v1.0.0'
 jar {
     manifest {
-	attributes 'Implementation-Title': 'Starter Bot',
-	    'Implementation-Version': version
+	    attributes 'Implementation-Title': 'Starter Bot',
+	        'Implementation-Version': version
     }
 }
+
+sourceCompatibility = '1.8'
