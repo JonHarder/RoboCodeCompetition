@@ -120,6 +120,17 @@ select *1.8.0_201*
 within the libs folder
 6. hit **apply**, then **ok**
 
+### Add source paths for robocode
+This allows Intellij to understand your project layout, including where your source code lives,
+which folders to ignore.
+
+In Intellij:
+1. Go to **File** -> **Project Structure...**
+2. Select the **Modules** Option from the side nav bar
+3. In the project file tree on the right, select `src`
+4. Click the **Sources** button directly above the project tree
+5. Click the `build` folder, and click the **Excluded** button directly above the project tree
+
 
 ## Compiling your bot
 from the command line, at the root of (your forked version of) this project, run
